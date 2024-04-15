@@ -1,0 +1,26 @@
+h1 {
+    color: rgb(213, 93, 213);
+    font-size: 200%;
+    text-indent: 140px;
+}
+
+p {
+    font-family: "Helvetica";
+    color: rgb(167, 167, 234);
+    text-indent: 10px;
+    margin-left: 10px;
+}
+
+#content {
+    background-color: #711c3d;
+    width: 500px;
+    min-height: 300px;
+    padding: 10px;
+    margin:10px;
+    border: solid 10px #cf4141;
+    font-size: 20px;
+}
+
+img {
+    width: 50%;
+}
