@@ -4,6 +4,18 @@
 .minor-section {
     padding: 10px;
     margin-bottom: 10px;
-    border: solid 1px #888;
-    background-color: #DDD8C4;
+    border: solid 5px #a26ce8;
+    background-color: #931469;
+  }
+
+  h1 {
+    color: rgb(91, 150, 246);
+    text-indent: 430px;
+    font-family: Helvetica;
+  }
+
+  #content {
+    background-color: black;
+    font-family: Helvetica;
+    color: rgb(91, 150, 246);
   }
