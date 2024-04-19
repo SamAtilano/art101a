@@ -7,3 +7,33 @@
     border: solid 1px #888;
     background-color: #DDD8C4;
   }
+
+.task-3-screenshot {
+  margin: 10px;
+  max-width: 500px;
+  width: 50%;
+}
+
+.task-3-page {
+  margin: 10px;
+  max-width: 500px;
+  width: 50%;
+}
+
+.task-2-screenshot {
+  margin: 10px;
+  max-width: 500px;
+  width: 50%;
+}
+
+.task-2-page {
+  margin: 10px;
+  max-width: 500px;
+  width: 50%;
+}
+
+.local-file-structure {
+  margin: 10px;
+  max-width: 500px;
+  width: 50%;
+}
