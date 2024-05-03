@@ -1,0 +1,27 @@
+.minor-section {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: solid 1px #888;
+    background-color: #DDD8C4;
+  }
+
+  body {
+    color: rgb(6, 58, 6);
+    background-color: rgb(6, 58, 6);
+  }
+
+  .minor-section {
+    font-family: Helvetica;
+    font-size: 15px;
+    color: rgb(6, 58, 6);
+    line-height: 1.5;
+    background-color: beige;
+    border-width: 0px;
+  }
+
+  #content {
+    background-color: rgb(255, 227, 86);
+    border-width: 7px;
+    border-color: rgb(255, 255, 255);
+    border-style: dotted;
+  }
