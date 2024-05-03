@@ -24,3 +24,8 @@ var result = array.map(function(x){
 })
 
 console.log("Squareroot of array:", result);
+
+//Your map results data
+var mapResults = $("#output").html(mapResults);
+
+//Use jQuery to select the element by its ID and set the HTML content
