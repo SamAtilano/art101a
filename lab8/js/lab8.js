@@ -26,6 +26,7 @@ var result = array.map(function(x){
 console.log("Squareroot of array:", result);
 
 //Your map results data
-var mapResults = $("#output").html(mapResults);
+var mapResults = "Original array:[20, 40, 3, 569, 1038] Eveness of array:[true, true, false, false, true] Squareroots of array:[4.47213595499958, 6.324555320336759, 1.7320508075688772, 23.853720883753127, 32.218007387174026]";
 
 //Use jQuery to select the element by its ID and set the HTML content
+$("#output").html(mapResults);
