@@ -25,3 +25,29 @@
     border-color: rgb(255, 255, 255);
     border-style: dotted;
   }
+
+.text {
+    margin-bottom: 10px;
+}
+
+.text.left {
+    text-align: left;
+}
+
+.text.right {
+    text-align: right;
+}
+
+.text.left p {
+    background-color: rgb(253, 206, 214);
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.text.right p {
+    background-color: rgb(190, 255, 110);
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+}
