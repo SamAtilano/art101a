@@ -4,11 +4,11 @@
 
 var maxFactors = 4;
 
-var outputEL = document.getElementById("output");
+var outputE1 = document.getElementById("output");
 
 //get values from the webpage and write them to an object
 //returns an object that will look like this;
-// {3: "Fizz", 5: "Buzz", 7: "Boom"}
+// {3: "Fizz", 4: "Buzz", 5: "Boom", 7: "Bang"}
 function getFactorObj() {
     var factorObj = {};
     for (var factor = 0; factor < maxFactors; factor++) {
@@ -26,16 +26,16 @@ function getFactorObj() {
 }
 
 function outputToPage(str) {
-    var newEl = document.createElement("p");
-    newEl.innerHTML = str;
-    outputEl.appendChild(newEl);
+    var newE1 = document.createElement("p");
+    newE1.innerHTML = str;
+    outputE1.appendChild(newE1);
 }
 
 //given a number and an object that looks like this:
-//      {3: "Fizz", 5: "Buzz", 7: "Boom"}
+//      {3: "Fizz", 4: "Buzz", 5: "Boom", 7: "Bang"}
 //loops over the numbers and outputs the number and the matching text
 //for factors
-function fizzBuzzBoom(maxNums, factorObj) {
+function fizzBuzzBoomBang(maxNums, factorObj) {
     //iterate over all of out numbers
     for (var num=0; num <= maxNums; num++) {
         //reset output string
@@ -57,7 +57,7 @@ function fizzBuzzBoom(maxNums, factorObj) {
 }
 
 function reportError(str) {
-    outputEl.innerHTML = "<div class='error'>" + str + "</div>";
+    outputE1.innerHTML = "<div class='error'>" + str + "</div>";
 }
 
 document.getElementById("submit").addEventListener("click", function() {
@@ -74,7 +74,7 @@ document.getElementById("submit").addEventListener("click", function() {
         return;
     }
     //clear error if one is there
-    outputEl.innerHTML = "";
-    fizzBuzzBoom(Number(max), factorObj);
-    outputEl.classList.add("cols");
+    outputE1.innerHTML = "";
+    fizzBuzzBoomBang(Number(max), factorObj);
+    outputE1.classList.add("cols");
 });
