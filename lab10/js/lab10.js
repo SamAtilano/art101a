@@ -3,6 +3,7 @@
 // Date: 17 May
 
 function generateRandomText() {
+  debugger;
     const text = "Hello, this is some random text. I like pancakes but don't really like waffles. I like chocolate ice cream but don't really like vanilla ice cream. My favorite hobbies include drawing, reading, and writing.";
     const min = 3;
     const max = 100;
