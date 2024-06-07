@@ -2,12 +2,9 @@
 // Author: Sam Atilano <batilano@ucsc.edu>
 // Date: 7 June
 
-var URL = "https://xkcd.com/614/info.0.json";
-
-// https://xkcd.com/json.html
-// endpoint https://xkcd.com/614/info.0.json
-var URLpre = "https://xkcd.com/";
-var URLpost = "info.0.json";
+let proxyURL = "https://api.allorigins.win/get?url=";
+let URLpre = "https://xkcd.com/";
+let URLpost = "info.0.json";
 
 // Endpoint format: https://xkcd.com/614/info.0.json
 
@@ -25,54 +22,39 @@ function getComic(num) {
     numStr = num.toString() + "/";
   }
   var ourURL = URLpre + numStr + URLpost;
-  console.log("Our new URL:", ourURL);
-  // get data via ajax from numbersapi
+  let finalURL = proxyURL + encodeURIComponent(ourURL)
+  console.log("Our new URL:", finalURL);
   // Using the core $.ajax() method
   $.ajax({
-      // The URL for the request (ENDPOINT)
-      url: ourURL,
+      url: finalURL,
       // Whether this is a POST or GET request
       type: "GET",
+      dataType: "json",
   })
   // If the request succeeds
   .done(function(data) {
-      // console.log(data);
-      var imageUrl = data.img;
-      // we use .replace(/"/g, '\\"') after the text strings because
-      // sometimes there are single and double quotes in the text
-      // that confuses the html
-      var title = data.title;
-      console.log("orig title:", title);
-      title = make_safe(title);
-      console.log("safe title:", title);
-      var alt = data.alt;
-      console.log("orig alt:", alt);
-      alt = make_safe(alt);
-      console.log("safe alt:", alt);
-      var comicNum = data.num;
-      var html = `<div id="imageblock">
-          <h2>${title}</h2>
-          <img src="${imageUrl}" title="${alt}"><br>
-          <button id="prev">Previous</button><button id="next">Next</button>
-        </div>`
-      // console.log("My new html: \n", html);
-      $("#output").html(html);
+    let parsedData = JSON.parse(data.contents);
+    console.log(parsedData);
+     
+      var title = parsedData.title;
+      let imgURL = parsedData.img;
+      let alt = parsedData.alt;
 
-      // add event listener to new prev button
-      $("#prev").click(function(){
-        getComic(comicNum - 1);
-      });
-      // add event listener to new next button
-      $("#next").click(function(){
-        getComic(comicNum + 1);
-      });
-  })
-  .fail(function(){
-    console.log("^^ Please ignore this error. It's okay.");
-    console.log("Have a okay day! :-)");
-  })
+      comicNum = parsedData.num;
 
+      let htmlOutput = `
+      <h2>${make_safe(title)}</h2>
+      <img src="${imgURL}" alt="${make_safe(alt)}" title="${make_safe(alt)}">
+        <p>${make_safe(alt)}</p>
+        `;
+
+        $("#output").html(htmlOutput);
+  })
+  .fail(function () {
+    console.log("Error!");
+  });
 }
 
-// start things off
+//start things off
 getComic();
+
