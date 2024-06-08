@@ -5,6 +5,7 @@
 let proxyURL = "https://api.allorigins.win/get?url=";
 let URLpre = "https://xkcd.com/";
 let URLpost = "info.0.json";
+let comicNum = 0;
 
 // Endpoint format: https://xkcd.com/614/info.0.json
 
@@ -16,12 +17,8 @@ function make_safe(str) {
 }
 
 function getComic(num) {
-  if (typeof num === 'undefined') {
-    numStr = "";
-  } else {
-    numStr = num.toString() + "/";
-  }
-  var ourURL = URLpre + numStr + URLpost;
+  let numStr = num ? num + "/" : "";
+  let ourURL = URLpre + numStr + URLpost;
   let finalURL = proxyURL + encodeURIComponent(ourURL)
   console.log("Our new URL:", finalURL);
   // Using the core $.ajax() method
@@ -36,7 +33,7 @@ function getComic(num) {
     let parsedData = JSON.parse(data.contents);
     console.log(parsedData);
      
-      var title = parsedData.title;
+      let title = parsedData.title;
       let imgURL = parsedData.img;
       let alt = parsedData.alt;
 
@@ -54,6 +51,15 @@ function getComic(num) {
     console.log("Error!");
   });
 }
+
+// event listeners for nav buttons
+$("#prev").click(function() {
+  getComic(comicNum - 1);
+});
+
+$("#next").click(function() {
+  getComic(comicNum + 1);
+});
 
 //start things off
 getComic();
